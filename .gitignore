@@ -1,0 +1,14 @@
+.clj-kondo
+.cpcache
+.DS_Store
+.lsp
+.nrepl-port
+.rebel_readline_history
+.shadow-cljs
+/*.iml
+/node_modules
+/target 
+/resources/public/css/main.css
+/resources/public/js
+package-lock.json
+shadow-cljs-tailwind.iml
