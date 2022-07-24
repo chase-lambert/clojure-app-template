@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1.2
-FROM node:latest AS node
+FROM node:alpine AS node
 
 WORKDIR /
 COPY . /
