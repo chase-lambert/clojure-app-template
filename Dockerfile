@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1.2
-FROM clojure:latest AS clojure
+FROM clojure:latest
 
 WORKDIR /
 COPY . /
