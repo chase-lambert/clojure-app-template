@@ -6,7 +6,7 @@ COPY . /
 
 RUN npm install
 RUN npm run release 
-RUN clojure -X:uberjar :jar TODO.jar
+RUN clj -T:build uber
 
 FROM clojure:latest
 
