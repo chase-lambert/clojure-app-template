@@ -19,4 +19,4 @@ RUN clj -T:build uber
 
 EXPOSE $PORT
 
-ENTRYPOINT exec java $JAVA_OPTS -jar /target/TODO-standalone.jar
+ENTRYPOINT exec java $JAVA_OPTS -jar target/TODO-standalone.jar
