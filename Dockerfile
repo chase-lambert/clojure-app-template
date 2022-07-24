@@ -1,20 +1,17 @@
 # syntax = docker/dockerfile:1.2
-FROM clojure:latest AS build
+FROM node:latest AS node
 
 WORKDIR /
 COPY . /
 
-RUN apt install -y curl
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-ENV NVM_DIR=/root/.nvm 
-RUN nvm install node 
 RUN npm install
 RUN npm run release 
+
+FROM clojure:latest AS clojure
+
 RUN clj -T:build uber
 
-FROM clojure:latest
-
-COPY --from=build /target/TODO-standalone.jar /TODO/TODO-standalone.jar
+COPY --from=clojure /target/TODO-standalone.jar /TODO/TODO-standalone.jar
 
 EXPOSE $PORT
 
