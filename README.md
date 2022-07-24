@@ -34,7 +34,7 @@ HTTP server built on port `3000`
 
 nrepl port on `3333`
 
-I use neovim w/conjure so run your editor's equivelant of: `ConjureShadowSelectApp`
+I use neovim w/conjure so run your editor's equivelant of: `ConjureShadowSelect app`
 
 This should give you hot reloading on save, including tailwind css changes.
 I think something is causing postcss to run even without save sometimes, but it isn't affecting development while I track that down.
