@@ -1,20 +1,17 @@
 {:paths ["src/backend" "resources"]
 
- :deps 
- {org.clojure/clojure   {:mvn/version "1.12.0-alpha1"}
-  ;; org.clojure/data.json {:mvn/version "2.4.0"}
-  aero/aero {:mvn/version "1.1.6"}
-  ;; clj-http/clj-http   {:mvn/version "3.12.3"}
-  ;; com.github.seancorfield/next.jdbc      {:mvn/version "1.2.780"}
-  ;; com.layerware/hugsql-adapter-next-jdbc {:mvn/version "0.5.3"}
-  ;; com.layerware/hugsql-core {:mvn/version "0.5.3"}
-  metosin/muuntaja {:mvn/version "0.6.8"}
-  metosin/reitit   {:mvn/version "0.5.18"}
-  metosin/ring-http-response {:mvn/version "0.9.3"}
-  ;; org.postgresql/postgresql  {:mvn/version "42.4.0"}
-  ring/ring {:mvn/version "1.9.5"}}
+ :deps {org.clojure/clojure {:mvn/version "1.12.0-alpha1"}
+        aero/aero           {:mvn/version "1.1.6"}
+        metosin/muuntaja    {:mvn/version "0.6.8"}
+        metosin/reitit      {:mvn/version "0.5.18"}
+        metosin/ring-http-response {:mvn/version "0.9.3"}
+        ring/ring {:mvn/version "1.9.5"}}
+        ;; clj-http/clj-http {:mvn/version "3.12.3"}
+        ;; com.github.seancorfield/next.jdbc {:mvn/version "1.2.780"}
+        ;; com.github.seancorfield/honeysql {:mvn/version "2.3.911"}
+        ;; org.clojure/data.json {:mvn/version "2.4.0"}
+        ;; org.postgresql/postgresql {:mvn/version "42.4.0"}
  
  :aliases 
- {:build {:deps 
-          {io.github.clojure/tools.build {:git/tag "v0.8.3" :git/sha "0d20256"}}
-          :ns-default build}}}
+ {:build {:deps {io.github.clojure/tools.build {:git/tag "v0.8.3" :git/sha "0d20256"}
+                 :ns-default build}}}}
