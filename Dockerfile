@@ -15,7 +15,7 @@ ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
 RUN npm install
 RUN npm run release 
-RUN clj -T:build uber
+RUN clojure -T:build uber
 
 EXPOSE $PORT
 
