@@ -5,6 +5,7 @@
     [muuntaja.middleware     :as muuntaja]
     [reitit.ring             :as ring]
     [ring.adapter.jetty      :as jetty]
+    [ring.middleware.gzip    :refer [wrap-gzip]]
     [ring.middleware.reload  :refer [wrap-reload]]
     [ring.util.http-response :as response])
   (:gen-class))
@@ -40,6 +41,7 @@
     (-> #'app 
         wrap-nocache 
         wrap-formats
-        wrap-reload) 
+        wrap-reload
+        wrap-gzip) 
     {:port (:port config)
      :join? false}))

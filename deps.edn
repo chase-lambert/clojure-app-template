@@ -2,10 +2,11 @@
 
  :deps {org.clojure/clojure {:mvn/version "1.12.0-alpha1"}
         aero/aero           {:mvn/version "1.1.6"}
+        amalloy/ring-gzip-middleware {:mvn/version "0.1.4"}
         metosin/muuntaja    {:mvn/version "0.6.8"}
         metosin/reitit      {:mvn/version "0.5.18"}
         metosin/ring-http-response {:mvn/version "0.9.3"}
-        ring/ring {:mvn/version "1.9.5"}}
+        ring/ring {:mvn/version "1.9.6"}}
         ;; clj-http/clj-http {:mvn/version "3.12.3"}
         ;; com.github.seancorfield/next.jdbc {:mvn/version "1.2.780"}
         ;; com.github.seancorfield/honeysql {:mvn/version "2.3.911"}
@@ -19,6 +20,6 @@
   :test  {:extra-paths ["test"]
           :extra-deps  {io.github.cognitect-labs/test-runner
                         {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                         :sha "9e35c979860c75555adaff7600070c60004a0f44"}}
+                         :sha "a522ab2851a2aa5bf9c22a942b45287a3a019310"}}
           :main-opts ["-m" "cognitect.test-runner"]
           :exec-fn cognitect.test-runner.api/test}}}

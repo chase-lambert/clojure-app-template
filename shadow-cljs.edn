@@ -1,7 +1,7 @@
 {:source-paths ["src/frontend" "test/frontend"]
  
  :dependencies [[binaryage/devtools "1.0.6"]
-                [cider/cider-nrepl  "0.28.5"]
+                [cider/cider-nrepl  "0.28.6"]
                 [reagent  "1.1.1"]]
                 ;; [re-frame "1.2.0"]]
 

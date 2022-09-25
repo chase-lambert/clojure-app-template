@@ -39,13 +39,15 @@ This should give you hot reloading on save, including tailwind css changes.
 I think something is causing postcss to run even without save sometimes, but it isn't affecting development while I track that down.
 
 ### Backend:
+To start the server run `clojure -M -m TODO.core`
+
 Start your normal repl like usual. (e.g. For me that's `clj -M:repl` and connect.)
 
-TBH, I'm not quite sure how to have the backend and frontend connected to their respective repls and such quite yet.
+TBH, I'm not quite sure how to have the backend and frontend connected to their respective repls and running at the same time quite yet.
 
 ## For prod: 
 `npm run release`
 
-`clj -T:build uber`
+`clojure -T:build uber`
 
 `java -jar target/TODO-standalone.jar`
