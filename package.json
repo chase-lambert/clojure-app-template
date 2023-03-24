@@ -1,27 +1,28 @@
 {
     "name": "todo",
     "devDependencies": {
-        "autoprefixer": "^10.4.12",
-        "cssnano": "^5.1.13",
+        "autoprefixer": "^10.4.13",
+        "cssnano": "^5.1.15",
         "npm-run-all": "^4.1.5",
-        "postcss": "^8.4.16",
-        "postcss-cli": "^10.0.0",
-        "shadow-cljs": "2.20.2",
-        "tailwindcss": "^3.1.8"
+        "postcss": "^8.4.21",
+        "postcss-cli": "^10.1.0",
+        "shadow-cljs": "2.21.0",
+        "tailwindcss": "^3.2.7"
     },
     "dependencies": {
         "@tailwindcss/forms": "^0.5.3",
         "cross-env": "^7.0.3",
-        "daisyui": "^2.31.0",
-        "react": "18.2.0",
-        "react-dom": "18.2.0"
+        "highlight.js": "11.5.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
     },
     "scripts": {
+        "server:watch": "clj -M -m server.core",
+        "server:release": "clojure -T:build uber",
+
         "shadow:watch": "shadow-cljs watch app",
         "shadow:release": "shadow-cljs release app",
 
-        "postcss:build": "cross-env TAILWIND_MODE=build postcss resources/tailwind.css -o ./resources/public/css/main.css --verbose",
-        "postcss:watch": "cross-env TAILWIND_MODE=watch postcss resources/tailwind.css -o ./resources/public/css/main.css --verbose -w",
         "postcss:release": "cross-env NODE_ENV=production postcss resources/tailwind.css -o ./resources/public/css/main.css --verbose",
 
         "dev": "run-p -l *:watch",

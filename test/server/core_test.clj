@@ -1,4 +1,4 @@
-(ns TODO.core-test
+(ns server.core-test
   (:require
     [clojure.test :refer :all]))
 
