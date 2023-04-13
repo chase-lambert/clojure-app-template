@@ -15,7 +15,7 @@
   (b/copy-dir    {:src-dirs   ["src/server" "resources"]
                   :target-dir class-dir})
   (b/compile-clj {:basis     basis
-                  :src-dirs  ["src/server"]
+                  :src-dirs  ["src/server" "resources"]
                   :class-dir class-dir})
   (b/uber {:class-dir class-dir
            :uber-file uber-file
