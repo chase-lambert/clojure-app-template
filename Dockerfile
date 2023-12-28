@@ -5,7 +5,9 @@ WORKDIR /
 COPY . /
 
 ENV NODE_VERSION=19.6.0
-RUN apt install -y curl
+# RUN apt install -y curl
+RUN apt-get update \
+    && apt-get install -y curl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ENV NVM_DIR=/root/.nvm
 RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
