@@ -37,6 +37,7 @@
     (ring/create-file-handler {:path "/" :root "resources/public"})))
 
 (defn -main [& _]
+  (println "Server running on" (:port config))
   (jetty/run-jetty 
     (-> #'app 
         wrap-nocache 
@@ -45,3 +46,6 @@
         wrap-gzip) 
     {:port (:port config)
      :join? false}))
+
+(comment
+  (-main))
