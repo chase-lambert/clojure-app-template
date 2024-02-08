@@ -1,7 +1,7 @@
 {:source-paths ["src" "resources" "test"]
  
  :dependencies [[binaryage/devtools         "1.0.7"]
-                [day8.re-frame/re-frame-10x "1.9.7"]
+                [day8.re-frame/re-frame-10x "1.9.8"]
                 [day8.re-frame/tracing      "0.6.2"]
                 [cider/cider-nrepl          "0.45.0"]
                 [reagent                    "1.2.0"]
@@ -12,9 +12,10 @@
  :builds       {:app {:target     :browser
                       :output-dir "resources/public/js"
                       :asset-path "/js"
-                      :dev        {:closure-defines {client.core/TW true
-                                                     day8.re-frame.tracing.trace-enabled? true
-                                                     re-frame.trace/trace-enabled? true}}
+                      :dev        {:compiler-options
+                                    {:closure-defines {client.core/TW true
+                                                       day8.re-frame.tracing.trace-enabled? true
+                                                       re-frame.trace/trace-enabled? true}}}
                       :devtools   {:http-root "resources/public"
                                    :http-port 3000
                                    :preloads  [day8.re-frame-10x.preload]}
