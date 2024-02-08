@@ -1,51 +1,33 @@
 (ns server.core
-  (:require 
-    [aero.core               :as aero]
-    [clojure.java.io         :as io]
-    [muuntaja.middleware     :as muuntaja]
-    [reitit.ring             :as ring]
-    [ring.adapter.jetty      :as jetty]
-    [ring.middleware.gzip    :refer [wrap-gzip]]
-    [ring.middleware.reload  :refer [wrap-reload]]
-    [ring.util.http-response :as response])
+  (:require
+   [integrant.core          :as ig]
+   [ring.adapter.jetty      :as jetty]
+   [server.config           :refer [config]]
+   [server.handler :refer [main-handler]])
   (:gen-class))
 
-(def config 
-  (aero/read-config 
-    (io/resource "config.edn")))
+(defmethod ig/init-key :server/jetty
+  [_ {:keys [handler port]}]
+  (println "\nServer running on port" port)
+  (jetty/run-jetty handler {:port port
+                            :join? false}))
 
-(defn wrap-nocache [handler]
-  (fn [request]
-    (-> request
-        handler
-        (assoc-in [:headers "Pragma"] "no-cache"))))
+(defmethod ig/init-key :handler/run-app
+  [_ config]
+  (println "\nStarted app")
+  (main-handler config))
 
-(defn wrap-formats [handler]
-  (-> handler
-      (muuntaja/wrap-format)))
+(defmethod ig/init-key :db/postgres
+  [_ config]
+  (println "\nConfigured db")
+  (:jdbc-url config))
 
-(defn index-handler [_]
-  (response/ok
-   (slurp 
-     (io/resource "public/index.html"))))
-
-(def app 
-  (ring/routes
-    (ring/ring-handler
-      (ring/router
-        [["/" {:get index-handler}]]))
-    (ring/create-file-handler {:path "/" :root "resources/public"})))
+(defmethod ig/halt-key! :server/jetty
+  [_ server]
+  (.stop server))
 
 (defn -main [& _]
-  (println "Server running on" (:port config))
-  (jetty/run-jetty 
-    (-> #'app 
-        wrap-nocache 
-        wrap-formats
-        wrap-reload
-        wrap-gzip) 
-    {:port (:port config)
-     :join? false}))
+  (ig/init config))
 
 (comment
   (-main))

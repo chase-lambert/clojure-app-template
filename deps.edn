@@ -3,6 +3,7 @@
  :deps {org.clojure/clojure               {:mvn/version "1.12.0-alpha5"}
         aero/aero                         {:mvn/version "1.1.6"}
         amalloy/ring-gzip-middleware      {:mvn/version "0.1.4"}
+        integrant/integrant               {:mvn/version "0.8.1"}
         metosin/muuntaja                  {:mvn/version "0.6.8"}
         metosin/reitit                    {:mvn/version "0.6.0"}
         metosin/ring-http-response        {:mvn/version "0.9.3"}
@@ -18,9 +19,10 @@
  {:build {:deps {io.github.clojure/tools.build {:git/tag "v0.9.6" :git/sha "8e78bcc"}}
           :ns-default build}
 
-  :dev   {:extra-deps  {nrepl/nrepl       {:mvn/version "1.1.0"}
+  :dev   {:extra-deps  {integrant/repl    {:mvn/version "0.3.3"}
+                        nrepl/nrepl       {:mvn/version "1.1.0"}
                         cider/cider-nrepl {:mvn/version "0.45.0"}}
-          :extra-paths ["env/dev"]
+          :extra-paths ["dev"]
           :main-opts   ["-m" "nrepl.cmdline"
                         "-p" "7000"
                         "--middleware" "[cider.nrepl/cider-middleware]"

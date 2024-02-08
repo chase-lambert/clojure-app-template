@@ -5,7 +5,6 @@ WORKDIR /
 COPY . /
 
 ENV NODE_VERSION=20.11.0
-# RUN apt install -y curl
 RUN apt-get update \
     && apt-get install -y curl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash

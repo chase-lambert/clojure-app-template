@@ -1,1 +1,4 @@
-{:port #long #or [#env PORT 4000]}
+{:server/jetty    {:handler #ig/ref :handler/run-app
+                   :port #long #or [#env PORT 4000]}
+ :handler/run-app {:jdbc-url #ig/ref :db/postgres}
+ :db/postgres     {:jdbc-url "jdbc-url"}}
