@@ -6,7 +6,8 @@
    [reagent.dom   :as rdom]))
 
 (defn app []
-  [greeting])
+  [:div
+    [greeting]])
 
 (defn ^:dev/after-load start []
   (rdom/render [app]

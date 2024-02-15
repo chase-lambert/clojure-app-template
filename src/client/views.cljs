@@ -8,11 +8,12 @@
   (let [name  @(rf/subscribe [::subs/name])
         count @(rf/subscribe [::subs/count])]
     [:div
-     [:h1 
+     [:h1.text-3xl.font-extrabold
       "Hello " name "!"]
      [:h2
       "High-five counter: " count]
-     [:button.button {:on-click #(rf/dispatch [::events/increment-count])}
+     [:button {:on-click #(rf/dispatch [::events/increment-count])}
       "Up high!"]
-     [:button.button {:on-click #(rf/dispatch [::events/decrement-count])}
+     [:button {:on-click #(rf/dispatch [::events/decrement-count])}
       "Down low!"]]))
+
