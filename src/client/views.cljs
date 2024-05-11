@@ -14,7 +14,6 @@
       "High-five counter: " count]
      [:button.btn.btn-primary.m-4
       {:on-click #(rf/dispatch [::events/increment-count])}
-       ;; :style {:margin-right "16px"}}
       "Up high!"]
      [:button.btn.btn-primary 
       {:on-click #(rf/dispatch [::events/decrement-count])}

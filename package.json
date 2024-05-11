@@ -2,7 +2,12 @@
   "name": "todo",
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
+    "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
+    "cssnano": "^7.0.1",
     "daisyui": "4.11.1",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
     "shadow-cljs": "2.28.6",
     "tailwindcss": "3.4.3"
   },
@@ -15,6 +20,6 @@
     "server:release": "clojure -T:build uber",
     "shadow:watch": "shadow-cljs watch app",
     "shadow:release": "shadow-cljs release app",
-    "tailwind": "npx tailwindcss -i ./resources/public/css/tailwind.css -o ./resources/public/css/main.css"
+    "tailwind": "cross-env NODE_ENV=production postcss tailwindcss -i ./resources/public/css/tailwind.css -o ./resources/public/css/main.css"
   }
 }
