@@ -7,13 +7,16 @@
 (defn greeting []
   (let [name  @(rf/subscribe [::subs/name])
         count @(rf/subscribe [::subs/count])]
-    [:div
-     [:h1.text-3xl.font-extrabold
+    [:<>
+     [:h1.text-3xl.font-extrabold.mb-4
       "Hello " name "!"]
-     [:h2
+     [:h2.font-extrabold
       "High-five counter: " count]
-     [:button {:on-click #(rf/dispatch [::events/increment-count])}
+     [:button.btn.btn-primary.m-4
+      {:on-click #(rf/dispatch [::events/increment-count])}
+       ;; :style {:margin-right "16px"}}
       "Up high!"]
-     [:button {:on-click #(rf/dispatch [::events/decrement-count])}
+     [:button.btn.btn-primary 
+      {:on-click #(rf/dispatch [::events/decrement-count])}
       "Down low!"]]))
 

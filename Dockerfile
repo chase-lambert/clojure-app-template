@@ -4,7 +4,7 @@ FROM clojure:latest
 WORKDIR /
 COPY . /
 
-ENV NODE_VERSION=20.11.0
+ENV NODE_VERSION=22.1.0
 RUN apt-get update \
     && apt-get install -y curl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
@@ -15,7 +15,8 @@ RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 
 RUN npm install
-RUN npm run release 
+RUN npm run tailwind
+RUN npx shadow-cljs release app
 RUN clojure -T:build uber
 
 EXPOSE $PORT
