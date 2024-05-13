@@ -1,7 +1,7 @@
 (ns client.core
   (:require
    [client.events   :as events]
-   [client.views    :refer [greeting]]
+   [client.views    :refer [init-routes! home-page router router-component]]
    [clojure.string  :as str]
    [re-frame.core   :as rf]
    [reagent.dom     :as rdom]
@@ -27,12 +27,23 @@
 (defn app []
   [:<>
    (when TW [tailwindcdn])
-   [greeting]])
+   [router-component {:router router}]])
+
 
 (defn ^:dev/after-load start []
   (rdom/render [app]
     (.getElementById js/document "app")))
 
+(def debug? ^boolean goog.DEBUG)
+
+(defn dev-setup []
+  (when debug?
+    (enable-console-print!)
+    (println "dev mode")))
+
 (defn ^:export main []
+  (rf/clear-subscription-cache!)
   (rf/dispatch-sync [::events/initialize-db])
+  (dev-setup)
+  (init-routes!)
   (start))

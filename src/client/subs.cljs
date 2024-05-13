@@ -11,3 +11,8 @@
   ::count
   (fn [db]
     (:count db)))
+
+(rf/reg-sub 
+  ::current-route 
+  (fn [db]
+    (:current-route db)))
