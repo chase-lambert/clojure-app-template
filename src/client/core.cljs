@@ -1,7 +1,8 @@
 (ns client.core
   (:require
    [client.events   :as events]
-   [client.views    :refer [init-routes! home-page router router-component]]
+   [client.router   :refer [init-routes! router]]
+   [client.views    :refer [router-component]]
    [clojure.string  :as str]
    [re-frame.core   :as rf]
    [reagent.dom     :as rdom]

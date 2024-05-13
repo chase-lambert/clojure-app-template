@@ -1,25 +1,19 @@
 (ns client.views 
   (:require
    [client.events        :as events]
+   [client.router        :as-alias routes]
    [client.subs          :as subs]
-   [re-frame.core        :as rf]
-   [reitit.coercion.spec :as rss]
-   [reitit.frontend      :as rfe]
-   [reitit.frontend.easy :as rfee]
-   [reitit.core          :as rc]))
+   [re-frame.core        :as rf]))
+   ;; [reitit.core          :as rc]
+   ;; [reitit.frontend.easy :as rfee]))
 
-;; (defn href
-;;   "return relative url for given route. Url can be used in HTML links."
-;;   ([k] (href k nil nil))
-;;   ([k params] (href k params nil))
-;;   ([k params query] (rfee/href k params query)))
 
 (defn demo []
   [:div
    [:h1.text-3xl.font-extrabold 
     "DEMO"]
    [:button.btn.btn-primary.m-4
-    {:on-click #(rf/dispatch [::events/push-state ::home])}
+    {:on-click #(rf/dispatch [::events/push-state ::routes/home])}
     "Homepage"]])
 
 (defn home-page []
@@ -38,34 +32,14 @@
       "Down low!"]
      [:br]
      [:button.btn.btn-primary.m-4
-      {:on-click #(rf/dispatch [::events/push-state ::demo])}
+      {:on-click #(rf/dispatch [::events/push-state ::routes/demo])}
       "Go to demo"]]))
 
-
-(def routes
-  ["/"
-   [""     {:name        ::home
-            :view        home-page
-            :link-text   "Home"
-            :controllers [{:start (fn [& params] (js/console.log "Entering home page"))
-                           :stop  (fn [& params] (js/console.log "Leaving home page"))}]}]
-
-   ["demo" {:name ::demo
-            :view demo
-            :link-text "demo"
-            :controllers [{:start (fn [& params] (js/console.log "Entering demo"))
-                           :stop  (fn [& params] (js/console.log "Leaving demo"))}]}]])
-            
-(defn on-navigate [new-match]
-  (when new-match
-    (rf/dispatch [::events/navigated new-match])))
-
-(def router
-  (rfe/router routes {:data {:coercion rss/coercion}}))
-
-(defn init-routes! []
-  (js/console.log "initializing routes")
-  (rfee/start! router on-navigate {:use-fragment true}))
+;; (defn href
+;;   "return relative url for given route. Url can be used in HTML links."
+;;   ([k] (href k nil nil))
+;;   ([k params] (href k params nil))
+;;   ([k params query] (rfee/href k params query)))
 
 ;; (defn nav [{:keys [router current-route]}]
 ;;   [:ul
@@ -85,6 +59,4 @@
      (when current-route 
        [(-> current-route :data :view)])])) 
 
-(comment
-  (rc/match-by-path router "/demo")
-  (rc/match-by-path router ""))
+(comment)
