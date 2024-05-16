@@ -16,10 +16,6 @@
     "react-dom": "^17.0.2"
   },
   "scripts": {
-    "server:watch": "clj -M -m server.core",
-    "server:release": "clojure -T:build uber",
-    "shadow:watch": "shadow-cljs watch app",
-    "shadow:release": "shadow-cljs release app",
-    "tailwind": "cross-env NODE_ENV=production postcss tailwindcss -i ./resources/public/css/tailwind.css -o ./resources/public/css/main.css"
+    "tailwind": "cross-env NODE_ENV=production postcss resources/public/css/tailwind.css -o ./resources/public/css/main.css"
   }
 }
