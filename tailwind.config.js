@@ -4,7 +4,7 @@ module.exports = {
   content:
     process.env.NODE_ENV == "production"
       ? ["./resources/public/js/main.js"]
-      : ["./resources/public/js/cljs-runtime/*.js"],
+      : ["./src/client/**/*.cljs", "./resources/public/js/cljs-runtime/*.js"],
   daisyui: {
     themes: ["light", "dark", "aqua", "synthwave", "retro"],
   },

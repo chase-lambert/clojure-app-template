@@ -17,17 +17,10 @@
   (-> handler
       (muuntaja/wrap-format)))
 
-;; (defn index-handler [_]
-;;   (response/ok
-;;    (slurp 
-;;      (io/resource "public/index.html"))))
-
-(defn index-handler [req]
+(defn index-handler [_]
   (response/ok
-   (do 
-     (println req)
-     (slurp 
-       (io/resource "public/index.html")))))
+   (slurp 
+     (io/resource "public/index.html"))))
 
 (defn app [_config] 
   (ring/routes
