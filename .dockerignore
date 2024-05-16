@@ -8,7 +8,6 @@
 /*.iml
 /node_modules
 /target 
-/resources/public/css/main.css
-/resources/public/js
+/resources/public/js/cljs-runtime
 package-lock.json
 shadow-cljs-tailwind.iml
