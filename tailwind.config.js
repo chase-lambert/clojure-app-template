@@ -1,10 +1,5 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 module.exports = {
-  content:
-    process.env.NODE_ENV == "production"
-      ? ["./resources/public/js/main.js"]
-      : ["./src/client/**/*.cljs", "./resources/public/js/cljs-runtime/*.js"],
+  content: ["./resources/public/js/main.js"],
   daisyui: {
     themes: ["light", "dark", "aqua", "synthwave", "retro"],
   },

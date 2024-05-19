@@ -21,7 +21,7 @@
         count @(rf/subscribe [::subs/count])]
     [:<>
      [:h1.text-3xl.font-extrabold.mb-4
-      "Hello " name "!"]
+      "hello " name "!"]
      [:h2
       "High-five counter: " count]
      [:button.btn.btn-primary.m-4
