@@ -10,13 +10,13 @@
 (def routes
   ["/"
    [""     {:name        ::home
-            :view        home-page
-            :link-text   "Home"
+            :view        #'home-page
+            :link-text   "home"
             :controllers [{:start (fn [& params] (js/console.log "Entering home page"))
                            :stop  (fn [& params] (js/console.log "Leaving home page"))}]}]
 
    ["demo" {:name ::demo
-            :view demo
+            :view #'demo
             :link-text "demo"
             :controllers [{:start (fn [& params] (js/console.log "Entering demo"))
                            :stop  (fn [& params] (js/console.log "Leaving demo"))}]}]])

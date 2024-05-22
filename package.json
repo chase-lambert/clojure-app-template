@@ -11,6 +11,7 @@
     "react-dom": "^17.0.2"
   },
   "scripts": {
+    "tw": "npx tailwindcss -i ./resources/tailwind.css -o ./resources/public/css/main.css --watch",
     "tailwind": "npx tailwindcss -i ./resources/tailwind.css -o ./resources/public/css/main.css --minify"
   }
 }

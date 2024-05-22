@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./resources/public/js/main.js"],
+  content: ["./resources/public/js/cljs-runtime/*.js"],
   daisyui: {
     themes: ["light", "dark", "aqua", "synthwave", "retro"],
   },
