@@ -14,8 +14,7 @@
                       :output-dir "resources/public/js"
                       :asset-path "/js"
                       :dev        {:compiler-options
-                                    {:closure-defines {client.core/TW true
-                                                       day8.re-frame.tracing.trace-enabled? true
+                                    {:closure-defines {day8.re-frame.tracing.trace-enabled? true
                                                        re-frame.trace/trace-enabled? true}}}
                       :devtools   {:http-root "resources/public"
                                    :http-port 3000

@@ -1,6 +1,11 @@
-/** @type {import('tailwindcss').Config} */
+const { scanClojure } = require("@multiplyco/tailwind-clj");
 module.exports = {
-  content: ["./resources/public/js/main.js"],
+  content: {
+    files: ["./src/client/**/*.cljs"],
+    extract: {
+      cljs: (content) => scanClojure(content),
+    },
+  },
   daisyui: {
     themes: ["light", "dark", "aqua", "synthwave", "retro"],
   },

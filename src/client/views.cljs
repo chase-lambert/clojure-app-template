@@ -22,7 +22,7 @@
     [:<>
      [:h1.text-3xl.font-extrabold.mb-4
       "Hello " name "!"]
-     [:h2.font-extrabold.text-3xl
+     [:h2.font-extrabold
       "High-five counter: " count]
      [:button.btn.btn-primary.m-4
       {:on-click #(rf/dispatch [::events/increment-count])}
